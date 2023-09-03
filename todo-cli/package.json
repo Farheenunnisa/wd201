@@ -1,0 +1,28 @@
+{
+  "name": "todo-cli",
+  "version": "1.0.0",
+  "description": "My Todo-cli applicatio",
+  "main": "todo.js",
+  "scripts": {
+    "test": "jest",
+    "prepare": "cd .. && husky install todo-cli/.husky"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "minimist": "^1.2.8"
+  },
+  "devDependencies": {
+    "eslint": "^8.48.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint",
+      "prettier --write ."
+    ]
+  }
+  
+}
