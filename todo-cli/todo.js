@@ -8,24 +8,32 @@ const todoList = () => {
   }
 
   const overdue = () => {
-   return all.filter((item)=> item.dueDate<new Date().toISOString().slice(0, 10));
+    const today= new Date().toLocaleDateString("en-CA");
+   return all.filter((item)=> item.dueDate<today);
 }
 
   const dueToday = () => {
     {
-      return all.filter((item)=> item.dueDate === new Date().toISOString().slice(0, 10));
+      const today= new Date().toLocaleDateString("en-CA");
+      return all.filter((item)=> item.dueDate === today);
    }
   }
 
   const dueLater = () => {
     {
-      return all.filter((item)=> item.dueDate>new Date().toISOString().slice(0, 10));
+      const today= new Date().toLocaleDateString("en-CA");
+      return all.filter((item)=> item.dueDate > today);
    }
   }
 
   const toDisplayableList = (list) => {
-    return list.map(item => `${item.completed ? '[x]' : '[ ]'} ${item.title} ${item.dueDate === new Date().toISOString().slice(0, 10)}`).join("\n");
-  }
+   return list
+   .map(
+    (todo) =>
+    `${todo.completed ? "[x]" : "[ ]"} ${todo.title} ${todo.dueDate == today ? "" : todo.dueDate}`
+     )
+     .join("\n");
+  };
 
   return {
     all,
