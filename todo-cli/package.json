@@ -1,8 +1,14 @@
 {
   "name": "todo-cli",
   "version": "1.0.0",
-  "description": "My Todo-cli applicatio",
+  "description": "My Todo-cli application",
   "main": "todo.js",
+"lint-staged": {
+    "*.js": [
+      "eslint",
+      "prettier --write ."
+    ]
+},
   "scripts": {
     "test": "jest",
     "prepare": "cd .. && husky install todo-cli/.husky"
@@ -17,12 +23,6 @@
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3"
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint",
-      "prettier --write ."
-    ]
   }
   
 }
