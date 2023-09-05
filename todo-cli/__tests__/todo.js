@@ -10,8 +10,8 @@ describe("TodoList Test Suite",() =>{
         add(
             {
                 title:"File taxes",
+                dueDate:tomorrow.toISOString().slice(0,10),
                 completed: false,
-                dueDate:tomorrow.toISOString().slice(0,10)
             }
         );
         expect(all.length).toBe(1);
@@ -20,8 +20,8 @@ describe("TodoList Test Suite",() =>{
         const todoItemsCount=all.length;
         add({
                 title:"Service Vehicle",
+                dueDate:new Date().toISOString().slice(0,10),
                 completed: false,
-                dueDate:new Date().toLocaleString("en-CA")
             });
         expect(all.length).toBe(todoItemsCount+1);
     });
@@ -36,8 +36,8 @@ describe("TodoList Test Suite",() =>{
         const overdueCount=overdue().length;
         add({
                 title:"Submit assignment",
-                completed: false,
                 dueDate:yesterday.toISOString().slice(0,10),
+                completed: false,
             });
         expect(overdue().length).toBe(overdueCount+1);
     });
@@ -46,8 +46,8 @@ describe("TodoList Test Suite",() =>{
         const dueTodayCount=dueToday().length;
         add({
                 title:"Pay rent",
-                completed: true,
                 dueDate:today.toISOString().slice(0,10),
+                completed: true,
             });
         expect(dueToday().length).toBe(dueTodayCount+1);
     });
@@ -57,12 +57,11 @@ describe("TodoList Test Suite",() =>{
         const duelaterCount=dueLater().length;
         add({
                 title:"Pay electric bill",
-                completed: false,
                 dueDate:tomorrow.toISOString().slice(0,10),
+                completed: false,
             });
         expect(dueLater().length).toBe(duelaterCount+1);
         console.log(all);
     });
-
-})
+});
 
