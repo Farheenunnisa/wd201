@@ -11,7 +11,7 @@ describe("TodoList Test Suite",() =>{
             {
                 title:"File taxes",
                 completed: false,
-                dueDate:tomorrow.toString().slice(0,10)
+                dueDate:tomorrow.toISOString().slice(0,10)
             }
         );
         expect(all.length).toBe(1);
@@ -37,9 +37,9 @@ describe("TodoList Test Suite",() =>{
         add({
                 title:"Submit assignment",
                 completed: false,
-                dueDate:yesterday.toString().slice(0,10),
+                dueDate:yesterday.toISOString().slice(0,10),
             });
-        expect(all.length).toBe(overdueCount+1);
+        expect(overdue().length).toBe(overdueCount+1);
     });
     test("Should retrive due today items", () =>{
         const today=new Date();
@@ -47,7 +47,7 @@ describe("TodoList Test Suite",() =>{
         add({
                 title:"Pay rent",
                 completed: true,
-                dueDate:today.toString().slice(0,10),
+                dueDate:today.toISOString().slice(0,10),
             });
         expect(dueToday().length).toBe(dueTodayCount+1);
     });
@@ -58,7 +58,7 @@ describe("TodoList Test Suite",() =>{
         add({
                 title:"Pay electric bill",
                 completed: false,
-                dueDate:tomorrow.toString().slice(0,10),
+                dueDate:tomorrow.toISOString().slice(0,10),
             });
         expect(dueLater().length).toBe(duelaterCount+1);
         console.log(all);
