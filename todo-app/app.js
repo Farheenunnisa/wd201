@@ -65,8 +65,8 @@ app.delete("/todos/:id", async function (request, response) {
   // Then, we have to respond back with true/false based on whether the Todo was deleted or not.
   // response.send(true)
   console.log("We have to delete a Todo with ID: ",request.params.id);
-  //const delete_todo=await Todo.destroy({where: {id: request.params.id}});
-  response.send(delete_toso ? true:false);
+  const delete_todo=await Todo.destroy({where: {id: request.params.id}});
+  response.send(delete_todo ? true:false);
 });
 
 module.exports = app;
